@@ -1,8 +1,12 @@
 
+HttpWebRequest request = (HttpWebRequest)WebRequest.Create(@"http://urlserviciosoap/test/clientesv1.0");
+request.Headers.Add(@"SOAP:Action");
+request.ContentType = "text/xml;charset=\"utf-8\"";
+request.Accept = "text/xml";
+request.Method = "POST";
 
-HttpWebRequest request = this.CreateSOAPWebRequestClienteContratoCerrar(@"http://urlserviciosoap/test/clientesv1.0");
-                XmlDocument SOAPReqBody = new XmlDocument();
-                SOAPReqBody.LoadXml(
+XmlDocument SOAPReqBody = new XmlDocument();
+SOAPReqBody.LoadXml(
     string.Format(@"<?xml version=""1.0"" encoding=""utf-8""?>
 <soapenv:Envelope xmlns:soapenv=""http://schemas.xmlsoap.org/soap/envelope/"" xmlns:cli=""http://urlserviciosoap/common/schema/clientservice"" xmlns:cli1=""http://urlserviciosoap/common/schema/clientservice"" xmlns:req=""http://urlserviciosoap.com/common/schema/Cliente/Req-v2018.02"">
 <soapenv:Header>
